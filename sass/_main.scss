@@ -1,0 +1,254 @@
+.cuerpoPpal {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: 2rem;
+    background-color: white;
+  
+} 
+
+.carouselTamaño {
+   width: 90%;
+   height: 50%;
+   object-fit: cover;
+   margin: auto;
+ 
+}
+
+.InformacionFoto{
+        color:rgb(18, 17, 17);
+        width: 95%;
+        font-size:2rem;
+        font-style: italic;
+        background-color: #e8e1e16f;
+        .iconos {
+            color: rgb(225, 214, 214);
+            font-size: 3rem; 
+        }      
+}
+
+.card-container {
+    display: flex;
+    flex-direction: row;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    .tarjetas {
+        font-family: $tipografiaGeneral;
+        font-size: 4rem;
+        background-color: $color-card-info;
+        font-style: italic; 
+        color: rgb(65, 58, 87);
+        border-radius: 1rem;
+        box-shadow: -1px -1px 14px 0px rgba(56,53,53,0.43);
+    -webkit-box-shadow: -1px -1px 14px 0px rgba(56,53,53,0.43);
+    -moz-box-shadow: -1px -1px 14px 0px rgba(56,53,53,0.43);
+        text-decoration: none;
+        list-style: none;
+        margin-left: 2rem;
+        margin-right: 2rem;
+        margin-bottom: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center; 
+    }
+}
+
+
+
+
+.pantalla_dividida{
+    display: flex;
+    .izquierda{
+
+        background-color: $color-card-info;
+        width: 50%;
+        .textoTitulo{
+            font-size:2rem;
+            width: 40%;
+            margin:auto;
+            margin-top:8%;
+            margin-bottom: 3%;
+            margin-left:10%;
+            max-width: 50%;
+            .creativo{
+                color: rgb(97, 78, 74);
+                font-size: 2.5rem;
+            }
+        }
+        .texto{
+            font-size: 1.6rem;
+            line-height: 190%;
+            width: 80%;
+            margin:auto;
+            margin-left:10%;
+            max-width: 100%;
+            min-width: 50%;
+        }
+    }
+    .derecha{
+        background-image: url("../assets/images/rsz_fotopaulina.jpg");
+        background-position: center;   
+        background-size:contain;
+        width: 50%;
+        object-fit: cover;
+       
+    }
+   
+}
+
+
+.preguntasFrecuentes {
+    font-size: 2.5rem; 
+    background-size: contain;
+    margin:2rem;
+    .subtitulosPreguntas {
+        color: rgb(68, 63, 88);
+        font-size: 2rem;
+    }
+    .preguntas {
+        font-style:oblique;
+        margin-bottom: 0.5rem;
+        margin-top: 0.5rem;
+        font-weight:bolder;
+    }
+}
+.formularioPadre {
+    display: flex;
+    flex-direction: column;
+    .formulario {
+        font-size: 3rem;;
+        font-family: 'Work Sans', sans-serif;
+        margin-bottom: 10px;
+        @include flex-direction-justificar (column,left);
+        text-align: left;
+        margin: 2rem;
+        input {
+            font-size: 2rem;
+            border: 1px solid black;
+        }
+        .botonEnviar {
+            &:hover {
+                background-color: map-get($colores-hover, botonEnviar)!important;
+            }
+        }
+    }
+    
+}
+
+
+
+.imagenFormulario {
+    width: 50rem;
+    height: 50rem;
+    justify-content: center;
+    margin-top: 3rem;
+    margin-left: 5rem;
+    object-fit: cover;
+}
+.mapaSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.sectionGeneralPerchero {
+    font-size: 20px; 
+    background-size: contain;
+    margin-bottom: 10px;
+    .subtitulosPerchero {
+        color: rgb(68, 63, 88);
+        font-size: 2rem;
+    }
+    .galeria {
+        background-color: rgb(243, 238, 233);
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        align-items: center;
+        font-size: 4rem;
+        font-style: italic;
+        gap: 1%;
+        .margenGaleria {
+            margin-bottom: 2rem;
+            .imgGaleria {
+                width: 400px;
+                height: 400px;
+                object-fit: cover;
+                margin-bottom: 2rem;
+                display: flex;
+                flex-direction: column;
+                margin-bottom: 3rem;
+            }
+        }
+    }
+    .imgTerminos {
+        width: 50rem;
+        height:40rem;
+        object-fit: cover;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin: 5rem auto 5rem auto;
+    }
+}
+.sectionAMedida {
+    font-size: 20px; 
+    background-size: contain;
+    margin-bottom: 10px;
+    .borderMedida {
+        width: 80%;
+        background-color: rgb(255, 249, 247);
+        border-color: rga (97, 95, 111); 
+        border-style: ridge;
+        border-width:thin;
+        font-size: 3rem;
+        font-style: italic; 
+        color: rgb(65, 58, 87);
+        margin: 5rem auto  5rem auto;
+        padding: 5rem;
+        border-radius: 1rem;
+        box-shadow: -1px -1px 14px 0px rgba(56,53,53,0.43);
+    -webkit-box-shadow: -1px -1px 14px 0px rgba(56,53,53,0.43);
+    -moz-box-shadow: -1px -1px 14px 0px rgba(56,53,53,0.43);
+        overflow:auto;  
+    }
+}
+
+
+/*
+estos 4 los utilice en varias pagina distinas. por eso no lo 
+anide
+*/
+
+
+.subtitulos {
+color: rgb(68, 63, 88);
+font-size: 2rem;
+}
+
+.centrado {
+text-align: $centrado;
+margin-bottom: 10px;
+margin-top: 20px;
+}
+
+.negrita {
+font-style: italic;
+}
+.agrandar {
+font-size: 2rem;
+
+}
+.negrita2 {
+    font-weight: bolder;
+}
+
+.iconoError {
+    font-size: 4rem;
+}
+
+/*
+estos 4 los utilice en varias pagina distinas
+*/

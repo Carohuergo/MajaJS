@@ -1,0 +1,231 @@
+@media screen and (max-width:413px) {
+    .pantalla_dividida{
+        flex-direction: column;
+    }
+    .derecha{
+        width: 100%;
+        height: 50%;
+    }
+    .izquierda{
+        width: 100%;
+        height: 50%;
+       
+    }
+   
+    h2 .textoTitulo{
+        font-size: 2rem;
+       
+    }
+    p .texto{
+        width: 80%;
+        font-size: 0.8rem;
+    }
+    .mapaSection iframe {
+        width: 50%;
+        height: auto;
+    }
+
+
+    footer div i {
+        font-size: 4rem;
+    }
+
+    .navegadorFooter {
+        font-size: 2.8rem!important;
+            &:hover {
+                color: map-get($colores-hover, navFooter);
+                font-size: 2rem!important;
+            }
+        }
+
+    .imgTerminos {
+        height: 300px!important;
+        width: 75px!important;
+    }
+
+    .tarjetas {
+        width: 300px;
+        
+    }
+
+    .wrap {
+        .wrapTexto {
+            width: 100%;
+            font-size: 1.5rem;
+        }
+    }
+    .cabezera {
+        color: rgb(65, 58, 87);
+        @include flex-direction-justificar (column, center);
+        align-items: center;
+        .tituloPpal{
+            font-size: 2.7rem!important;
+            font-style: bold;
+        }
+        
+        .tituloSecundario {
+            font-size: 2.5rem;
+            font-style: bold;
+        }
+        
+    }
+}
+@media screen and (min-width: 413px) and (max-width: 576px) {
+    .pantalla_dividida{
+        flex-direction: column;
+        .izquierda{
+            width: 100%;
+            height: 50%;
+            h2 .textoTitulo{
+                font-size: 2rem;
+               
+            }
+            p .texto{
+                width: 80%;
+                font-size: 0.8rem;
+            }
+           
+        }
+        .derecha{
+            width: 100%;
+            height: 50%;
+        }
+    }
+    
+  
+    .mapaSection iframe {
+        width: 50%;
+        height: auto;
+    }
+
+    footer div i {
+        font-size: 4rem;
+    }
+
+    .imgTerminos {
+        height: 300px!important;
+        width: 75px!important;
+    }
+
+
+  
+        .card-container {
+            flex-direction: column;
+            align-content: center;
+         
+            margin-top: 3rem;
+            margin-bottom: 3rem;
+
+        }
+    
+    
+
+    .wrap {
+        .wrapTexto {
+            width: 100%;
+            font-size: 1.5rem;
+        }
+    }
+    .cabezera {
+        color: rgb(65, 58, 87);
+        @include flex-direction-justificar (column, center);
+        align-items: center;
+        .tituloPpal{
+            font-size: 2.8rem!important;
+            font-style: bold;
+        }
+        
+        .tituloSecundario {
+            font-size: 2.5rem;
+            font-style: bold;
+        }
+    }
+}
+
+@media screen and (min-width: 576px) and (max-width: 768px) {
+    .pantalla_dividida{
+        flex-direction: column;
+        .izquierda{
+            width: 100%;
+            height: 50%;
+            h2 .textoTitulo{
+                font-size: 2rem;
+            }
+            p .texto{
+                width: 80%;
+                font-size: 0.8rem;
+            }
+        }
+        .derecha{
+            width: 100%;
+            height: 50%;
+        }
+    }
+  
+    .mapaSection iframe {
+        width: 50%;
+        height: auto;
+    }
+
+    footer div i {
+        font-size: 4rem;
+    }
+
+    .imgTerminos {
+        height: 300px!important;
+        width: 75px!important;
+    }
+
+        .card-container {
+            flex-direction: column;
+            align-content: center;
+            margin-top: 3rem;
+            margin-bottom: 3rem;
+
+        }
+    }
+
+    .wrap {
+        font-size: 1rem;
+        .wrapTexto {
+            font-size: 2rem;
+        }
+    }
+    .cabezera {
+        color: rgb(65, 58, 87);
+        @include flex-direction-justificar (column, center!important);
+        align-items: center;
+        .tituloPpal{
+            font-size: 2.5rem!important;
+            font-style: bold;
+        }
+        
+        .tituloSecundario {
+            font-size: 2.5rem;
+            font-style: bold;
+        }
+    }
+
+
+
+    @media screen and (min-width: 768px) and (max-width: 968px) {
+    .pantalla_dividida{
+        flex-direction: column;
+        .izquierda{
+            width: 100%;
+            height: 50%;
+            h2 .textoTitulo{
+                font-size: 2rem;
+               
+            }
+            p .texto{
+                width: 80%;
+                font-size: 1rem;
+            }
+        }
+        .derecha{
+            width: 100%;
+            height: 50%;
+        }
+    }
+}

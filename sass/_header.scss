@@ -1,0 +1,45 @@
+.logo {
+    width:300px;
+    height:200px;
+    object-fit: cover;
+}
+
+.cabezera {
+color: rgb(65, 58, 87);
+@include flex-direction-justificar(column,center);
+       .tituloPpal { 
+ font-size: 3.6rem;
+ font-style: bold;
+        }
+        .tituloSecundario {
+            font-size: 2.5rem;
+            font-style: bold;
+        }
+}
+.navegadorHamburguesa {
+    width: 100%;
+    background-color: rgb(216, 196, 192)!important;
+    font-size: 2rem!important;
+    color: rgb(250, 240, 240);
+    list-style-type: none!important;
+    font-family: $tipografiaGeneral;
+    margin-bottom: 2rem;
+    .navbar-toggler {
+        font-size: 3.5rem;
+        &:hover {
+            outline: none;
+            box-shadow: none;
+        }
+    
+    }
+        .nav-link {
+            text-decoration: none!important;
+            font-size: 2rem;
+            color: rgb(250, 240, 240);
+            margin-left: 2rem;
+            &:hover {
+                color: map-get($colores-hover, navHeader)!important; 
+
+            }
+        }  
+   }

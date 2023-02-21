@@ -1,0 +1,452 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400&family=Work+Sans:ital,wght@1,200&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Quicksand", sans-serif;
+  font-size: 62.5%;
+  text-decoration: none; }
+
+.logo {
+  width: 300px;
+  height: 200px;
+  object-fit: cover; }
+
+.cabezera {
+  color: #413a57;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; }
+  .cabezera .tituloPpal {
+    font-size: 3.6rem;
+    font-style: bold; }
+  .cabezera .tituloSecundario {
+    font-size: 2.5rem;
+    font-style: bold; }
+
+.navegadorHamburguesa {
+  width: 100%;
+  background-color: #d8c4c0 !important;
+  font-size: 2rem !important;
+  color: #faf0f0;
+  list-style-type: none !important;
+  font-family: "Quicksand", sans-serif;
+  margin-bottom: 2rem; }
+  .navegadorHamburguesa .navbar-toggler {
+    font-size: 3.5rem; }
+    .navegadorHamburguesa .navbar-toggler:hover {
+      outline: none;
+      box-shadow: none; }
+  .navegadorHamburguesa .nav-link {
+    text-decoration: none !important;
+    font-size: 2rem;
+    color: #faf0f0;
+    margin-left: 2rem; }
+    .navegadorHamburguesa .nav-link:hover {
+      color: black !important; }
+
+.footer {
+  background-color: #e0d0cc;
+  width: 100%;
+  height: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center; }
+  .footer .footerDiv {
+    transition: 0.4s;
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+    .footer .footerDiv .facebook {
+      color: #3b5998;
+      font-size: 5rem;
+      text-align: center; }
+    .footer .footerDiv .whatsapp {
+      color: #085508;
+      font-size: 5rem;
+      text-align: center; }
+    .footer .footerDiv .instagram {
+      color: #e1306c;
+      font-size: 5rem;
+      text-align: center; }
+    .footer .footerDiv .navegadorFooter {
+      font-size: 3.8rem;
+      align-items: center;
+      list-style-type: none;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      text-transform: uppercase;
+      flex-wrap: wrap;
+      padding: 5px; }
+      .footer .footerDiv .navegadorFooter a {
+        text-decoration: none;
+        color: black; }
+        .footer .footerDiv .navegadorFooter a:hover {
+          color: #6b4040;
+          font-size: 1.7rem; }
+    .footer .footerDiv .pieDePagina {
+      font-size: 1rem;
+      width: 100%; }
+
+.cuerpoPpal {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin: 2rem;
+  background-color: white; }
+
+.carouselTamaño {
+  width: 90%;
+  height: 50%;
+  object-fit: cover;
+  margin: auto; }
+
+.InformacionFoto {
+  color: #121111;
+  width: 95%;
+  font-size: 2rem;
+  font-style: italic;
+  background-color: #e8e1e16f; }
+  .InformacionFoto .iconos {
+    color: #e1d6d6;
+    font-size: 3rem; }
+
+.card-container {
+  display: flex;
+  flex-direction: row;
+  margin-top: 3rem;
+  margin-bottom: 3rem; }
+  .card-container .tarjetas {
+    font-family: "Quicksand", sans-serif;
+    font-size: 4rem;
+    background-color: #f6eeec;
+    font-style: italic;
+    color: #413a57;
+    border-radius: 1rem;
+    box-shadow: -1px -1px 14px 0px rgba(56, 53, 53, 0.43);
+    -webkit-box-shadow: -1px -1px 14px 0px rgba(56, 53, 53, 0.43);
+    -moz-box-shadow: -1px -1px 14px 0px rgba(56, 53, 53, 0.43);
+    text-decoration: none;
+    list-style: none;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+
+.pantalla_dividida {
+  display: flex; }
+  .pantalla_dividida .izquierda {
+    background-color: #f6eeec;
+    width: 50%; }
+    .pantalla_dividida .izquierda .textoTitulo {
+      font-size: 2rem;
+      width: 40%;
+      margin: auto;
+      margin-top: 8%;
+      margin-bottom: 3%;
+      margin-left: 10%;
+      max-width: 50%; }
+      .pantalla_dividida .izquierda .textoTitulo .creativo {
+        color: #614e4a;
+        font-size: 2.5rem; }
+    .pantalla_dividida .izquierda .texto {
+      font-size: 1.6rem;
+      line-height: 190%;
+      width: 80%;
+      margin: auto;
+      margin-left: 10%;
+      max-width: 100%;
+      min-width: 50%; }
+  .pantalla_dividida .derecha {
+    background-image: url("../assets/images/rsz_fotopaulina.jpg");
+    background-position: center;
+    background-size: contain;
+    width: 50%;
+    object-fit: cover; }
+
+.preguntasFrecuentes {
+  font-size: 2.5rem;
+  background-size: contain;
+  margin: 2rem; }
+  .preguntasFrecuentes .subtitulosPreguntas {
+    color: #443f58;
+    font-size: 2rem; }
+  .preguntasFrecuentes .preguntas {
+    font-style: oblique;
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+    font-weight: bolder; }
+
+.formularioPadre {
+  display: flex;
+  flex-direction: column; }
+  .formularioPadre .formulario {
+    font-size: 3rem;
+    font-family: 'Work Sans', sans-serif;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    text-align: left;
+    margin: 2rem; }
+    .formularioPadre .formulario input {
+      font-size: 2rem;
+      border: 1px solid black; }
+    .formularioPadre .formulario .botonEnviar:hover {
+      background-color: #f6eeec !important; }
+
+.imagenFormulario {
+  width: 50rem;
+  height: 50rem;
+  justify-content: center;
+  margin-top: 3rem;
+  margin-left: 5rem;
+  object-fit: cover; }
+
+.mapaSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+
+.sectionGeneralPerchero {
+  font-size: 20px;
+  background-size: contain;
+  margin-bottom: 10px; }
+  .sectionGeneralPerchero .subtitulosPerchero {
+    color: #443f58;
+    font-size: 2rem; }
+  .sectionGeneralPerchero .galeria {
+    background-color: #f3eee9;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 4rem;
+    font-style: italic;
+    gap: 1%; }
+    .sectionGeneralPerchero .galeria .margenGaleria {
+      margin-bottom: 2rem; }
+      .sectionGeneralPerchero .galeria .margenGaleria .imgGaleria {
+        width: 400px;
+        height: 400px;
+        object-fit: cover;
+        margin-bottom: 2rem;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 3rem; }
+  .sectionGeneralPerchero .imgTerminos {
+    width: 50rem;
+    height: 40rem;
+    object-fit: cover;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 5rem auto 5rem auto; }
+
+.sectionAMedida {
+  font-size: 20px;
+  background-size: contain;
+  margin-bottom: 10px; }
+  .sectionAMedida .borderMedida {
+    width: 80%;
+    background-color: #fff9f7;
+    border-color: rga 97, 95, 111;
+    border-style: ridge;
+    border-width: thin;
+    font-size: 3rem;
+    font-style: italic;
+    color: #413a57;
+    margin: 5rem auto  5rem auto;
+    padding: 5rem;
+    border-radius: 1rem;
+    box-shadow: -1px -1px 14px 0px rgba(56, 53, 53, 0.43);
+    -webkit-box-shadow: -1px -1px 14px 0px rgba(56, 53, 53, 0.43);
+    -moz-box-shadow: -1px -1px 14px 0px rgba(56, 53, 53, 0.43);
+    overflow: auto; }
+
+/*
+estos 4 los utilice en varias pagina distinas. por eso no lo 
+anide
+*/
+.subtitulos {
+  color: #443f58;
+  font-size: 2rem; }
+
+.centrado {
+  text-align: center;
+  margin-bottom: 10px;
+  margin-top: 20px; }
+
+.negrita {
+  font-style: italic; }
+
+.agrandar {
+  font-size: 2rem; }
+
+.negrita2 {
+  font-weight: bolder; }
+
+.iconoError {
+  font-size: 4rem; }
+
+/*
+estos 4 los utilice en varias pagina distinas
+*/
+@media screen and (max-width: 413px) {
+  .pantalla_dividida {
+    flex-direction: column; }
+  .derecha {
+    width: 100%;
+    height: 50%; }
+  .izquierda {
+    width: 100%;
+    height: 50%; }
+  h2 .textoTitulo {
+    font-size: 2rem; }
+  p .texto {
+    width: 80%;
+    font-size: 0.8rem; }
+  .mapaSection iframe {
+    width: 50%;
+    height: auto; }
+  footer div i {
+    font-size: 4rem; }
+  .navegadorFooter {
+    font-size: 2.8rem !important; }
+    .navegadorFooter:hover {
+      color: #6b4040;
+      font-size: 2rem !important; }
+  .imgTerminos {
+    height: 300px !important;
+    width: 75px !important; }
+  .tarjetas {
+    width: 300px; }
+  .wrap .wrapTexto {
+    width: 100%;
+    font-size: 1.5rem; }
+  .cabezera {
+    color: #413a57;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; }
+    .cabezera .tituloPpal {
+      font-size: 2.7rem !important;
+      font-style: bold; }
+    .cabezera .tituloSecundario {
+      font-size: 2.5rem;
+      font-style: bold; } }
+
+@media screen and (min-width: 413px) and (max-width: 576px) {
+  .pantalla_dividida {
+    flex-direction: column; }
+    .pantalla_dividida .izquierda {
+      width: 100%;
+      height: 50%; }
+      .pantalla_dividida .izquierda h2 .textoTitulo {
+        font-size: 2rem; }
+      .pantalla_dividida .izquierda p .texto {
+        width: 80%;
+        font-size: 0.8rem; }
+    .pantalla_dividida .derecha {
+      width: 100%;
+      height: 50%; }
+  .mapaSection iframe {
+    width: 50%;
+    height: auto; }
+  footer div i {
+    font-size: 4rem; }
+  .imgTerminos {
+    height: 300px !important;
+    width: 75px !important; }
+  .card-container {
+    flex-direction: column;
+    align-content: center;
+    margin-top: 3rem;
+    margin-bottom: 3rem; }
+  .wrap .wrapTexto {
+    width: 100%;
+    font-size: 1.5rem; }
+  .cabezera {
+    color: #413a57;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; }
+    .cabezera .tituloPpal {
+      font-size: 2.8rem !important;
+      font-style: bold; }
+    .cabezera .tituloSecundario {
+      font-size: 2.5rem;
+      font-style: bold; } }
+
+@media screen and (min-width: 576px) and (max-width: 768px) {
+  .pantalla_dividida {
+    flex-direction: column; }
+    .pantalla_dividida .izquierda {
+      width: 100%;
+      height: 50%; }
+      .pantalla_dividida .izquierda h2 .textoTitulo {
+        font-size: 2rem; }
+      .pantalla_dividida .izquierda p .texto {
+        width: 80%;
+        font-size: 0.8rem; }
+    .pantalla_dividida .derecha {
+      width: 100%;
+      height: 50%; }
+  .mapaSection iframe {
+    width: 50%;
+    height: auto; }
+  footer div i {
+    font-size: 4rem; }
+  .imgTerminos {
+    height: 300px !important;
+    width: 75px !important; }
+  .card-container {
+    flex-direction: column;
+    align-content: center;
+    margin-top: 3rem;
+    margin-bottom: 3rem; } }
+
+.wrap {
+  font-size: 1rem; }
+  .wrap .wrapTexto {
+    font-size: 2rem; }
+
+.cabezera {
+  color: #413a57;
+  display: flex;
+  flex-direction: column;
+  justify-content: center !important;
+  align-items: center; }
+  .cabezera .tituloPpal {
+    font-size: 2.5rem !important;
+    font-style: bold; }
+  .cabezera .tituloSecundario {
+    font-size: 2.5rem;
+    font-style: bold; }
+
+@media screen and (min-width: 768px) and (max-width: 968px) {
+  .pantalla_dividida {
+    flex-direction: column; }
+    .pantalla_dividida .izquierda {
+      width: 100%;
+      height: 50%; }
+      .pantalla_dividida .izquierda h2 .textoTitulo {
+        font-size: 2rem; }
+      .pantalla_dividida .izquierda p .texto {
+        width: 80%;
+        font-size: 1rem; }
+    .pantalla_dividida .derecha {
+      width: 100%;
+      height: 50%; } }

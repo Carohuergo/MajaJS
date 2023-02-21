@@ -1,0 +1,475 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400&family=Work+Sans:ital,wght@1,200&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 62.5%;
+    text-decoration: none;
+    }
+
+    body {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+
+    }
+
+.logo{
+        width:300px;
+        height:200px;
+        object-fit: cover;
+       
+}
+.titulo {
+    color: rgb(65, 58, 87);
+    text-align: center;
+    font-size: 30px;
+    font-style: bold;
+}
+
+
+  
+.navegadorBS a{
+    text-decoration: none!important;
+    font-size: 2rem;
+    color: rgb(250, 240, 240);
+     
+}
+.navegadorBS {
+    width: 100%;
+    background-color: rgb(216, 196, 192)!important;
+    font-size: 2rem!important;
+    color: rgb(250, 240, 240);
+    list-style-type: none!important;
+    display: flex;
+    flex-direction: row;
+    margin-right: 10%!important;
+    padding: 5px 5px 5px 10px;
+    justify-content: center;
+    
+    
+}
+.navegadorHijo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    text-decoration: none;
+    font-size: 2rem;
+    text-align: center;
+    justify-content: space-around;
+}
+
+.navegadorBS a:hover {
+    color: black;
+}
+.cuerpoPpal {
+    
+    margin: 2rem;
+    background-color: white;
+  
+} 
+
+.subtitulos {
+    color: rgb(68, 63, 88);
+    font-size: 2rem;
+}
+
+.centrado {
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+    
+.wrap{
+    width: 100%;
+    height: 100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:linear-gradient(to right,rgba(0, 0, 0, 0.5),rgb(0, 0, 0,0.5)), url("../assets/images/vestidoRosa-fondo.jpg");
+    background-size: cover;
+    background-position: center;
+    object-fit: cover;
+}
+.wrapTexto{
+    color:white;
+    width: 40%;
+    font-size:2.5rem;
+    font-style: italic;
+    background-color: #ffffff10;
+   
+}
+
+.iconos {
+    color: rgb(225, 214, 214);
+    font-size: 3rem;
+    
+}
+
+ .ancho {
+    width: 100%;
+ }
+
+
+
+.tarjetas {
+    font-size: 3.5rem;
+    background-color: rgb(252, 249, 248);
+    font-style: italic; 
+    color: rgb(65, 58, 87);
+    border-radius: 1rem;
+    box-shadow: -1px -1px 14px 0px rgba(56,53,53,0.43);
+-webkit-box-shadow: -1px -1px 14px 0px rgba(56,53,53,0.43);
+-moz-box-shadow: -1px -1px 14px 0px rgba(56,53,53,0.43);
+    text-decoration: none;
+    list-style: none;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    margin-bottom: 2rem;
+ 
+    
+}
+.card-container {
+    display: flex;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+
+}
+
+
+
+
+.margin {
+    margin-top: 6rem;
+}
+
+.section {
+font-size: 20px; 
+background-size: contain;
+margin-bottom: 10px;
+
+}
+
+
+.negrita {
+    font-style: italic;
+}
+
+.formularioPadre {
+    display: flex;
+    flex-direction: column;
+
+}
+.formulario {
+    font-size: 3rem;;
+    font-family: 'Work Sans', sans-serif;
+    margin-bottom: 10px;
+    display: flex;
+    text-align: left;
+    flex-direction: column;
+    justify-content: left;
+    margin: 2rem;
+}
+.formulario input {
+    font-size: 2rem;
+    border: 1px solid black;
+
+}
+
+
+.agrandar {
+font-size: 2rem;
+
+}
+.imagenFormulario {
+    width: 50rem;
+    height: 50rem;
+    justify-content: center;
+    margin-top: 3rem;
+    margin-left: 5rem;
+    object-fit: cover;
+}
+.imgSize {
+    margin-left: 1rem;
+    margin-top: 1rem;
+    font-size: 5rem;
+    text-align: center;
+    object-fit: cover;
+}
+
+
+.pieDePagina {
+    font-size: 1rem;
+    width: 100%;
+    
+}
+.facebook {
+    color: #3b5998;
+    font-size: 5rem;
+    text-align: center;
+}
+
+.whatsapp {
+    color: rgb(8, 85, 8);
+    font-size: 5rem;
+    text-align: center;
+}
+
+.instagram {
+    color:#e1306c;
+    font-size: 5rem;
+    text-align: center;
+}
+
+.footer {
+    background-color: rgb(224, 208, 204);
+    width: 100%;
+    height: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column; 
+    flex-wrap:wrap;
+    align-items: center; 
+    justify-content: center;   
+    
+}
+.footerDiv{
+    transition: 0.4s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.navegadorFooter {
+    font-size: 2.5rem;
+    align-items: center;
+    list-style-type:none;
+    display: flex;
+    text-transform: uppercase;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 5px;
+}
+
+footer  div nav a:hover {
+    color: rgb(107, 64, 64);
+    font-size: 1.5rem;
+    
+}
+
+
+footer div nav a {
+    
+    text-decoration: none;
+    color:black;
+}
+
+.izquierda{
+
+    background-color: rgb(246, 238, 236);
+    width: 50%;
+    height: 50rem;
+    
+}
+
+.derecha{
+    background-image: url("../assets/images/rsz_fotopaulina.jpg");
+    background-position: center;   
+    background-size:contain;
+    width: 50%;
+    height: 50rem;
+    object-fit: cover;
+   
+}
+
+.pantalla_dividida{
+    display: flex;
+   
+}
+
+.creativo{
+    color: rgb(97, 78, 74);
+    font-size: 2.5rem;
+}
+
+.textoTitulo{
+    font-size:2rem;
+    width: 40%;
+    margin:auto;
+    margin-top:8%;
+    margin-bottom: 3%;
+    margin-left:10%;
+    max-width: 50%;
+}
+
+.texto{
+    font-size: 1.3rem;
+    line-height: 190%;
+    width: 70%;
+    margin:auto;
+    margin-left:10%;
+    max-width: 100%;
+    min-width: 50%;
+}
+
+.preguntasFrecuentes {
+    font-size: 2.5rem; 
+    background-size: contain;
+    margin:2rem;
+    
+}
+
+.preguntas {
+    font-style:oblique;
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+    font-weight:bolder;
+}
+
+.galeria {
+    background-color: rgb(243, 238, 233);
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 4rem;
+    font-style: italic;
+    gap: 1%;
+
+
+}
+
+.imgGaleria {
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 3rem;
+}
+.margenGaleria {
+    margin-bottom: 2rem;
+}
+
+.imgTerminos {
+    width: 50rem;
+    height:40rem;
+    object-fit: cover;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 5rem auto 5rem auto;
+}
+
+.borderMedida {
+    width: 80%;
+    background-color: rgb(255, 249, 247);
+    border-color: rga (97, 95, 111); 
+    border-style: ridge;
+    border-width:thin;
+    font-size: 3rem;
+    font-style: italic; 
+    color: rgb(65, 58, 87);
+    margin: 5rem auto  5rem auto;
+    padding: 5rem;
+    border-radius: 1rem;
+    box-shadow: -1px -1px 14px 0px rgba(56,53,53,0.43);
+-webkit-box-shadow: -1px -1px 14px 0px rgba(56,53,53,0.43);
+-moz-box-shadow: -1px -1px 14px 0px rgba(56,53,53,0.43);
+    overflow:auto;
+    
+}
+.mapaSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+@media (max-width:500px) {
+    .pantalla_dividida{
+        flex-direction: column;
+    }
+    .derecha{
+        width: 100%;
+        height: 50%;
+    }
+    .izquierda{
+        width: 100%;
+        height: 50%;
+       
+    }
+   
+    h1{
+        font-size: 2rem;
+       
+    }
+    p{
+        width: 80%;
+        font-size: 0.8rem;
+    }
+    .mapaSection iframe {
+        width: 50%;
+        height: auto;
+    }
+
+    .navegadorHijo a {
+            font-size: 1.5rem;
+
+        }
+    footer div i {
+        font-size: 4rem;
+    }
+
+    .imgTerminos {
+        height: 300px!important;
+        width: 75px!important;
+    }
+
+    .tarjetas {
+        width: 300px;
+        
+    }
+
+    .wrapTexto {
+        font-size: 4rem;
+    }
+
+    .wrap {
+        font-size: 5rem;
+    }
+
+}
+
+
+
+@media screen and (max-width:1200px) {
+    .pantalla_dividida{
+        flex-direction: column;
+    }
+    .derecha{
+        width: 100%;
+        height: 50%;
+    }
+    .izquierda{
+        width: 100%;
+        height: 50%;
+       
+    }
+   
+    h1{
+        font-size: 2rem;
+       
+    }
+    p{
+        width: 80%;
+        font-size: 0.8rem;
+    }
+}

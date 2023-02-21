@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="Saca tu cita con Maja Rent para poder ver todas las opciones que tenemos para que puedas
+    usar un vestido de alta costura en tu evento">
+    <meta name="keywords" content="vestido, contacto, cita, fiesta, noche, evento, turno">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Maja Rent | Contacto</title>
+    <link rel="icon" type="image/x-icon" href="../assets/images/logo.jpeg" />
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/estilos.css" />
+    <script
+      src="https://kit.fontawesome.com/5171e1f3c5.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="../css/animate.min.css">
+  </head>
+  
+  <body class="cuerpoPpal">
+    <header>
+      <div class="conteiner">
+        <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-12 cabezera">
+          <a href="../index.html">
+            <img class="logo" src="../assets/images/logo-removebg-preview.png" alt="logo" loading="lazy"/>
+          </a>
+        </div>
+        <div class="col-lg-8 col-md-8 col-sm-12 cabezera">
+          <h1 class="tituloPpal">Maja Rent by Paulina Terra</h1>
+          <h2 class="tituloSecundario">
+            <i class="fas fa-recycle text-center"></i> Moda Sustentable <i class="fas fa-recycle"></i>
+          </h2>
+        </div>
+      </div>
+      </div>
+
+
+      <nav class="navbar navbar-dark navbar-expand-md bg-dark navegadorHamburguesa">
+        <div class="container-fluid justify-content-space-evenly">
+          <button 
+          class="navbar-toggler"
+          type="button" 
+          data-bs-toggle="collapse" 
+          data-bs-target="#navbarSupportedContent" 
+          aria-controls="navbarSupportedContent" 
+          aria-expanded="false" 
+          aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+          <ul class="navbar-nav nav">
+            <li class="nav-item ">
+              <a class="nav-link active" aria-current="page" href="../index.html">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="./sobremi.html">Sobre Maja</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="./perchero.html">Perchero</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="./amedida.html">A medida</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Contacto</a>
+            </li>
+          </ul>
+        </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section>
+          <h2 class="subtitulos negrita centrado">
+            Complete el formulario para sacar una cita con Maja
+          </h2>
+
+          <div class="container row">
+              <div class="col-12 col-md-6">
+                  <form class="form formularioPadre" action="./error.html">
+                      <div class="formulario">
+                          <input class="form-control" type="text" placeholder="Nombre y apellido*" required />
+                          <br />
+                          <input class="form-control" type="email" placeholder="ejemplo@mail.com*" required />
+                          <br />
+                          <input class="form-control" type="text" placeholder="Telefono*" required />
+                          <br />
+              
+                          <!-- <p>¿En que servicio estas interesada?</p> -->
+                          <select class="custom-select agrandar" required>
+                          <option selected>¿En que servicio estas interesada?</option>
+                          <option value="1">Alquiler de Perchero</option>
+                          <option value="2">A medida</option>
+                          <option value="3">Las dos opciones - No estoy decidida</option>
+                          </select>
+
+                          <br>
+            
+                          <select class="custom-select agrandar">
+                              <option selected>¿Estas interesada en algun modelo de perchero?</option>
+                              <option value="1">Vestido GUISEPPINA</option>
+                              <option value="2">Vestido TOIA</option>
+                              <option value="3">Vestido OLIVA</option>
+                              <option value="4">Conjunto ALEXIA</option>
+                              <option value="5">Vestido MARIA</option>
+                              <option value="6">Vestido ROSA CON MANGAS</option>
+                              <option value="7">Vestido CLEOPATRA</option>
+                              <option value="8">Vestido CATALINA</option>
+                              <option value="9">Vestido CAROLINA</option>
+                              <option value="10">Vestido MARTINA CORTO</option>
+                              <option value="11">Vestido ANASTACIA</option>
+                              <option value="12">Vestido VALENTINA</option>
+                              <option value="13">Vestido ALMENDRA</option>
+                              <option value="14">Vestido PAULINA</option>
+                              <option value="15">Vestido AGUSTINA</option>
+                              <option value="16">Vestido KENYA</option>
+                              <option value="17">Vestido AGOSTINA</option>
+
+
+                          </select>
+                          <br>
+                          <label class="form-check-label" for="">Fecha del evento</label>
+                          <input class="form-control" id="" name="dia*" type="date" required />
+                           <br>
+                          <label class="form-check-label" for="">Interesada en probarse mas modelos?
+                          <input class="form-check-input" type="checkbox" name="opciones" />
+                          </label>
+
+                          <br />
+                          <label for="exampleFormControlTextarea1" class="form-label agrandar">Comentarios</label>
+                          <textarea class="form-control agrandar" placeholder="Ingrese su mensaje"></textarea>
+                          <input class="form-control agrandar botonEnviar" type="submit" value="Enviar Ahora">
+                          
+                        </div>
+                  </form>
+              </div>        
+                          
+              <div class="col-6 d-none d-md-block">
+                  <div>
+                      <img
+                          class="imagenFormulario"
+                          src="../assets/images/moda.jpeg"
+                          alt="imagen vestido brillo con logo"
+                          loading="lazy"
+                      />
+                  </div>
+              </div>
+          </div>
+        </section>
+      </main>
+    <section class="mapaSection">
+      <h3 class="subtitulos centrado">Showroom con cita previa</h3>
+      <iframe
+        class="centrado"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4633.698571734169!2d-58.72530994557617!3d-34.44642967970336!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bca21a900549ed%3A0xb7e86e78d001395a!2sDECS%20Tortugas!5e0!3m2!1ses-419!2sar!4v1665683759289!5m2!1ses-419!2sar"
+        width="400"
+        height="300"
+        style="border: 0"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
+    </section>
+
+    <footer class="footer">
+      <div class="footerDiv">
+        <div>
+          <a class="p-3" href="https://facebook.com" target="_blank" alt="Facebook">
+            <i
+              class="fa-brands fa-facebook facebook animate__animated animate__pulse animate__infinite"
+            ></i>
+          </a>
+          <a class="p-3"
+            href="https://www.instagram.com/maja.rent/?hl=es"
+            target="_blank"
+            alt="Instagram"
+          >
+            <i
+              class="fa-brands fa-instagram instagram animate__animated animate__pulse animate__infinite"
+            ></i>
+          </a>
+          <a class="p-3"
+            href="https://wa.me/5491132695121?text=Quisiera%20una%20cita,%20Gracias"
+            target="_blank"
+            alt="Whatsapp"
+          >
+            <i
+              class="fa-brands fa-whatsapp whatsapp animate__animated animate__pulse animate__infinite"
+            ></i>
+          </a>
+        </div>
+        <div>
+          <nav class="navegadorFooter">
+            <div  class="p-2">
+              <a href="../index.html">Inicio</a>
+            </div>
+            <div  class="p-2">
+              <a href="../pages/sobremi.html">Sobre Mi</a>
+            </div>
+            <div  class="p-2">
+              <a href="../pages/perchero.html">Perchero</a>
+            </div>
+            <div class="p-2">
+              <a href="../pages/amedida.html">A Medida</a>
+            </div>
+          </nav>
+        </div>
+
+        <div>
+          <p class="pieDePagina">
+            Copyright © 2022 - Desarrollado por Carolina Huergo
+          </p>
+        </div>
+      </div>
+    </footer>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

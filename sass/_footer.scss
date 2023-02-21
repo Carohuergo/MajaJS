@@ -1,0 +1,53 @@
+.footer {
+    background-color: rgb(224, 208, 204);
+    width: 100%;
+    height: auto;
+    padding: 20px;
+    @include flex-direction-justificar (column,center);
+    flex-wrap:wrap;
+    align-items: center; 
+    .footerDiv{
+        transition: 0.4s;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .facebook {
+            color: map-get($colores-redes, facebook);
+            font-size: 5rem;
+            text-align: center;
+        }
+        
+        .whatsapp {
+            color: map-get($colores-redes, whatsapp);
+            font-size: 5rem;
+            text-align: center;
+        }
+        
+        .instagram {
+            color: map-get($colores-redes, instagram);
+            font-size: 5rem;
+            text-align: center;
+        }
+        .navegadorFooter {
+            font-size: 3.8rem;
+            align-items: center;
+            list-style-type:none;
+            @include flex-direction-justificar (row, space-around);               
+            text-transform: uppercase;
+            flex-wrap: wrap;
+            padding: 5px;
+            a {
+                text-decoration: none;
+                color:black;
+                &:hover {
+                    color: map-get($colores-hover, navFooter);
+                    font-size: 1.7rem;
+                }
+            }
+        }
+        .pieDePagina {
+            font-size: 1rem;
+            width: 100%;
+        }
+    }
+}
