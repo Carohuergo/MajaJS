@@ -34,6 +34,8 @@ alert(" el total de su carrito es " + totalProducto)
     break;
     case "carolina": precio = 3500
     break;
+    case "catalina": precio = 3200
+    break;
     default: alert("modelo inexistente") 
     break;
     }
@@ -56,8 +58,7 @@ let cuota=0
     let precioFinal= multiplicar (totalProducto,0.90)
     {alert ("El total a abonar es " + precioFinal)}
  }  
- else {cuota=parseInt(prompt("Va a abonar en 1 (+6%), 2(+10%) o 3(+15%) cuotas"))}
-
+ else {cuota=parseInt(prompt("Va a abonar en 1 (+6%), 2(+10%) o 3(+15%) cuotas"))
  if (cuota==1) {
     let unPago= multiplicar (totalProducto,1.06)
     alert ("El total a abonar es una cuota es " + unPago)}
@@ -66,7 +67,9 @@ let cuota=0
         alert ("El total a abonar es dos cuota es " + dosPagos)}
         else {
             let tresPago= multiplicar (totalProducto,1.15)
-             alert ("El total a abonar es tres cuota es " + tresPago)}
+             alert ("El total a abonar es tres cuota es " + tresPago)}}
+
+
              
          
     
