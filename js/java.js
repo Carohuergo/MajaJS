@@ -61,13 +61,13 @@ let cuota=0
  else {cuota=parseInt(prompt("Va a abonar en 1 (+6%), 2(+10%) o 3(+15%) cuotas"))
  if (cuota==1) {
     let unPago= multiplicar (totalProducto,1.06)
-    alert ("El total a abonar es una cuota es " + unPago)}
+    alert ("El total a abonar en una cuota es " + unPago)}
     else if (cuota==2) {
         let dosPagos= multiplicar (totalProducto,1.10)
-        alert ("El total a abonar es dos cuota es " + dosPagos)}
+        alert ("El total a abonar en dos cuota es " + dosPagos)}
         else {
             let tresPago= multiplicar (totalProducto,1.15)
-             alert ("El total a abonar es tres cuota es " + tresPago)}}
+             alert ("El total a abonar en tres cuota es " + tresPago)}}
 
 
              
