@@ -1,79 +1,128 @@
-let productoIngresado=""
-let totalProducto=0
-do {
-    productoIngresado = (prompt("Ingrese el nombre del modelo que sea alquilar"))
-
-    switch (productoIngresado) {
-        case "maria": totalProducto = 3000
-        break;
-        case "paulina": totalProducto = 4000
-        break;
-        case "carolina": totalProducto = 3500
-        break;
-        case "catalina": totalProducto = 3200
-        break;
-        default: productoIngresado = "modelo inexistente" 
-        alert("modelo inexistente")
-        break;
-    }
-} while (productoIngresado == "modelo inexistente")
-
-
-alert(" el total de su carrito es " + totalProducto)
-
- let segundoProducto=prompt("¿Desea agregar otro modelo? ")
- let precio=0
- while (segundoProducto=="si") {
-
-    let nuevoProducto = (prompt("Ingrese el nombre del modelo que sea alquilar"))
-    
-    switch (nuevoProducto) {
-    case "maria": precio = 3000
-    break;
-    case "paulina": precio = 4000
-    break;
-    case "carolina": precio = 3500
-    break;
-    case "catalina": precio = 3200
-    break;
-    default: alert("modelo inexistente") 
-    break;
-    }
-    totalProducto= totalProducto + precio
-    segundoProducto=prompt("Desea agregar otro modelo ? ")   
- }
-
- alert("El total de los modelos seleccionados para alquiler es " + totalProducto)
-
- alert("Puede abonar con tarjeta hasta 3 cuotas con recargo o en efectivo con un 10% de descuento")
-
- let formaDePago=prompt("¿Como va a abonar, en efectivo o con tarjeta?")
-
- function multiplicar (prod1, prod2){
-    return prod1 * prod2
+function multiplicar(prod1, prod2) {
+  return prod1 * prod2;
 }
 
-let cuota=0
- if (formaDePago=="efectivo") {
-    let precioFinal= multiplicar (totalProducto,0.90)
-    {alert ("El total a abonar es " + precioFinal)}
- }  
- else {cuota=parseInt(prompt("Va a abonar en 1 (+6%), 2(+10%) o 3(+15%) cuotas"))
- if (cuota==1) {
-    let unPago= multiplicar (totalProducto,1.06)
-    alert ("El total a abonar en una cuota es " + unPago)}
-    else if (cuota==2) {
-        let dosPagos= multiplicar (totalProducto,1.10)
-        alert ("El total a abonar en dos cuota es " + dosPagos)}
-        else {
-            let tresPago= multiplicar (totalProducto,1.15)
-             alert ("El total a abonar en tres cuota es " + tresPago)}}
+//base de datos de mis productos
+const productos = [
+  { cod: 101, modelo: "maria", precio: 3000 },
+  { cod: 102, modelo: "carolina", precio: 3400 },
+  { cod: 103, modelo: "paulina", precio: 4000 },
+  { cod: 104, modelo: "catalina", precio: 3200 },
+];
 
+//array que se llenara de objetos(productos) que vaya ingresando el usuario
+const carrito = [];
 
-             
-         
-    
-     
- 
- 
+//le pregunto al usuario el modelo que quiere elegir
+
+//busca el modelo en la base de datos y lo agrega al carrito de compras. Si no existe, vuelve a preguntar
+let modeloinexistnte=""
+function buscarModelo() {
+  do {
+    let productoElegido = prompt("Indique el modelo que desea alquilar");
+    let busqueda = productos.find(
+      (producto) => producto.modelo === productoElegido
+    );
+    if (busqueda === undefined) {
+        modeloinexistnte = "error"
+      alert("Modelo inexistente");
+    }
+    else {
+      carrito.push(busqueda);
+      console.log(carrito);
+      modeloinexistnte=""
+    }
+  } while (modeloinexistnte==="error");
+}
+
+//evaluo si desea agregar mas modelos al carrito y agrego.
+function elegirMasProductos() {
+  let segundoProducto = prompt("¿Desea agregar otro modelo (si/no)? ");
+  while (segundoProducto === "si") {
+    buscarModelo();
+    segundoProducto = prompt("Desea agregar otro modelo (si/no)? ");
+  }
+}
+
+//funcion para eliminar un producto del carrito 
+
+function eliminarProducto() {
+    let respuesta = prompt("Desea eliminar un producto del carrito (si/no)?")
+    if (respuesta==="si") {
+        do {
+        let modeloEliminar = prompt("Indique el modelo que desea eliminar del carrito de compras")
+        let busquedaModeloEliminar = carrito.find(
+            (producto) => producto.modelo === modeloEliminar
+          );
+          if (busquedaModeloEliminar === undefined) {
+              modeloinexistnte = "error"
+            alert("Modelo inexistente");
+          }
+          else {
+            let posicion = carrito.indexOf(busquedaModeloEliminar)
+            console.log(posicion)
+            carrito.splice(posicion,1);
+            console.log(carrito);
+            alert("Se elimino del carrito al modelo:" + modeloEliminar)
+            modeloinexistnte=""
+          }
+        } while (modeloinexistnte==="error");
+    }
+
+}
+
+//mostramos el carrito final al usuario
+ function carritoFinal () {
+    const modelosDelCarritoFinal = carrito.map ( (producto) => producto.modelo)
+    alert("Carrito de compra final = " + modelosDelCarritoFinal)
+ }
+
+//sumamos el total el carrito//
+let totalProducto = 0;
+function sumaCarrito() {
+  carrito.forEach((producto) => {
+    totalProducto += producto.precio;
+  });
+  alert("El precio final de su carrito de compra es " + totalProducto);
+}
+//final de compra. pasamos a forma de pagos//
+function metodosDePago() {
+  alert(
+    "Puede abonar con tarjeta hasta 3 cuotas con recargo o en efectivo con un 10% de descuento"
+  );
+
+  let formaDePago = prompt("¿Como va a abonar, en efectivo o con tarjeta?");
+  let cuota = 0;
+
+  if (formaDePago == "efectivo") {
+    let precioFinal = multiplicar(totalProducto, 0.9);
+    alert("El total a abonar es " + precioFinal);
+  } else {
+    while (cuota != 1 && cuota != 2 && cuota != 3) {
+      cuota = parseInt(
+        prompt(
+          "¿Ingrese en cuantas cuotas desea abonar: 1 (+6%), 2(+10%) o 3(+15%) cuotas?"
+        )
+      );
+    }
+    if (cuota === 1) {
+      let unPago = multiplicar(totalProducto, 1.06);
+      alert("El total a abonar en una cuota es " + Math.round(unPago));
+    } else if (cuota === 2) {
+      let dosPagos = multiplicar(totalProducto, 1.1);
+      alert("El total a abonar en dos cuota es " + Math.round(dosPagos));
+    } else {
+      let tresPago = multiplicar(totalProducto, 1.15);
+      alert("El total a abonar en tres cuotas es " + Math.round(tresPago));
+    }
+  }
+}
+
+buscarModelo();
+elegirMasProductos();
+eliminarProducto ()
+carritoFinal ();
+sumaCarrito();
+metodosDePago();
+
 
