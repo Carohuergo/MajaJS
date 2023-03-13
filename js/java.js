@@ -16,7 +16,7 @@ const carrito = [];
 //le pregunto al usuario el modelo que quiere elegir
 
 //busca el modelo en la base de datos y lo agrega al carrito de compras. Si no existe, vuelve a preguntar
-let modeloinexistnte=""
+let modeloinexistnte = "";
 function buscarModelo() {
   do {
     let productoElegido = prompt("Indique el modelo que desea alquilar");
@@ -24,15 +24,14 @@ function buscarModelo() {
       (producto) => producto.modelo === productoElegido
     );
     if (busqueda === undefined) {
-        modeloinexistnte = "error"
+      modeloinexistnte = "error";
       alert("Modelo inexistente");
-    }
-    else {
+    } else {
       carrito.push(busqueda);
       console.log(carrito);
-      modeloinexistnte=""
+      modeloinexistnte = "";
     }
-  } while (modeloinexistnte==="error");
+  } while (modeloinexistnte === "error");
 }
 
 //evaluo si desea agregar mas modelos al carrito y agrego.
@@ -44,38 +43,38 @@ function elegirMasProductos() {
   }
 }
 
-//funcion para eliminar un producto del carrito 
+//funcion para eliminar un producto del carrito
 
 function eliminarProducto() {
-    let respuesta = prompt("Desea eliminar un producto del carrito (si/no)?")
-    if (respuesta==="si") {
-        do {
-        let modeloEliminar = prompt("Indique el modelo que desea eliminar del carrito de compras")
-        let busquedaModeloEliminar = carrito.find(
-            (producto) => producto.modelo === modeloEliminar
-          );
-          if (busquedaModeloEliminar === undefined) {
-              modeloinexistnte = "error"
-            alert("Modelo inexistente");
-          }
-          else {
-            let posicion = carrito.indexOf(busquedaModeloEliminar)
-            console.log(posicion)
-            carrito.splice(posicion,1);
-            console.log(carrito);
-            alert("Se elimino del carrito al modelo:" + modeloEliminar)
-            modeloinexistnte=""
-          }
-        } while (modeloinexistnte==="error");
-    }
-
+  let respuesta = prompt("Desea eliminar un producto del carrito (si/no)?");
+  if (respuesta === "si") {
+    do {
+      let modeloEliminar = prompt(
+        "Indique el modelo que desea eliminar del carrito de compras"
+      );
+      let busquedaModeloEliminar = carrito.find(
+        (producto) => producto.modelo === modeloEliminar
+      );
+      if (busquedaModeloEliminar === undefined) {
+        modeloinexistnte = "error";
+        alert("Modelo inexistente");
+      } else {
+        let posicion = carrito.indexOf(busquedaModeloEliminar);
+        console.log(posicion);
+        carrito.splice(posicion, 1);
+        console.log(carrito);
+        alert("Se elimino del carrito al modelo:" + modeloEliminar);
+        modeloinexistnte = "";
+      }
+    } while (modeloinexistnte === "error");
+  }
 }
 
 //mostramos el carrito final al usuario
- function carritoFinal () {
-    const modelosDelCarritoFinal = carrito.map ( (producto) => producto.modelo)
-    alert("Carrito de compra final = " + modelosDelCarritoFinal)
- }
+function carritoFinal() {
+  const modelosDelCarritoFinal = carrito.map((producto) => producto.modelo);
+  alert("Carrito de compra final = " + modelosDelCarritoFinal);
+}
 
 //sumamos el total el carrito//
 let totalProducto = 0;
@@ -118,11 +117,38 @@ function metodosDePago() {
   }
 }
 
+//Creo un objetos, le pido datos al usuario y los guardo en base de datos 
+
+function datosCliente () {
+    class Cliente {
+        constructor (nombre, apellido, dni, telefono, mail, fecha) {
+            this.nombre = nombre;
+            this.apellido = apellido;
+            this.dni = dni;
+            this.telefono = telefono;
+            this.mail = mail;
+            this.fecha = fecha
+        }
+
+    }
+   let nombre=prompt("Ingrese su nombre")
+   let apellido=prompt("Ingrese su apelldo")
+   let dni = prompt("Ingrese su dni")
+   let telefono =prompt("Ingrese su telefono")
+   let mail= prompt ("Ingrese su mail")
+   let fecha = prompt("Ingrese la fecha del evento (dd/mm/aa)")
+
+
+    const cliente1 = new Cliente (nombre, apellido, dni, telefono, mail, fecha)
+    const BaseDeDatosClientes = [cliente1]
+    console.log(BaseDeDatosClientes)
+    alert("verificaremos sus datos y si los modelos estan libres para la fecha indicada, le llegara un mail con los datos para efectuar el pago. Gracias, equipo Maja")
+}
+//llamo a las funciones creadas.
 buscarModelo();
 elegirMasProductos();
-eliminarProducto ()
-carritoFinal ();
+eliminarProducto();
+carritoFinal();
 sumaCarrito();
 metodosDePago();
-
-
+datosCliente ()
