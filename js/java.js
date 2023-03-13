@@ -29,6 +29,7 @@ function buscarModelo() {
     } else {
       carrito.push(busqueda);
       console.log(carrito);
+      alert("Modelo " + productoElegido + " fue ingresado al carrito")
       modeloinexistnte = "";
     }
   } while (modeloinexistnte === "error");
@@ -63,7 +64,7 @@ function eliminarProducto() {
         console.log(posicion);
         carrito.splice(posicion, 1);
         console.log(carrito);
-        alert("Se elimino del carrito al modelo:" + modeloEliminar);
+        alert("Se elimino del carrito al modelo: " + modeloEliminar);
         modeloinexistnte = "";
       }
     } while (modeloinexistnte === "error");
