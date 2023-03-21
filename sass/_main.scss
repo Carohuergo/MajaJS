@@ -159,6 +159,13 @@
         color: rgb(68, 63, 88);
         font-size: 2rem;
     }
+    .container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 25px;
+    }
     .galeria {
         background-color: rgb(243, 238, 233);
         width: 100%;
@@ -183,6 +190,7 @@
             }
         }
     }
+  
     .imgTerminos {
         width: 50rem;
         height:40rem;
@@ -193,6 +201,47 @@
         margin: 5rem auto 5rem auto;
     }
 }
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+
+
+}
+.card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(225, 185, 185, 0.298);
+    padding: 5px;
+    border-radius: 1rem;
+}
+.cardCarrito{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    box-shadow: 0 4px 8px rgba(210, 174, 174, 0.2);
+    padding: 5px;
+    border-radius: 1rem;
+    width: 300px;
+    font-family: $tipografiaGeneral;
+}
+#total{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 4px 8px rgba(211, 171, 171, 0.2);
+        padding: 5px;
+        border-radius: 1rem;
+        width: 450px;
+}
+
 .sectionAMedida {
     font-size: 20px; 
     background-size: contain;
