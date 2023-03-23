@@ -8,6 +8,7 @@ const productos = [
       "Confeccionado en paillette bordado sobre seda fría con spandex, tela importada.",
     img: "../assets/images/VestidoGuiseppina2.JPG",
     alt: "Vestido Guiseppina pailete rojo",
+    cantidad: 1,
   },
   {
     id: 2,
@@ -17,6 +18,7 @@ const productos = [
       "Confeccionado en taftan de seda, escote en v con recortes y espalda con tiras cruzadas",
     img: "../assets/images/VestidoToia2.jpg",
     alt: "Vestido Toia taftan azul",
+    cantidad: 1,
   },
   {
     id: 3,
@@ -26,6 +28,7 @@ const productos = [
       "Vestido confeccionado en saten de seda, con corte americano, espalda baja y tajo.",
     img: "../assets/images/VestidoOliva2.PNG",
     alt: "vestido oliva seda verde",
+    cantidad: 1,
   },
   {
     id: 4,
@@ -35,6 +38,7 @@ const productos = [
       "Conjunto de top bando, pantalón suelto y saco Sastrero. Confeccionado en paillette plisado importado",
     img: "../assets/images/ConjuntoAlexia3.PNG",
     alt: "conjunto alexia paillette rosa",
+    cantidad: 1,
   },
   {
     id: 5,
@@ -43,6 +47,7 @@ const productos = [
     descrip: "Vestido confeccionado en doble seda fría importada.",
     img: "../assets/images/VestidoMaria2.PNG",
     alt: "vestido maria seda negro",
+    cantidad: 1,
   },
   {
     id: 6,
@@ -52,12 +57,16 @@ const productos = [
       "Vestido confeccionado en paillette bordado sobre seda fría con spandex, tela importada.",
     img: "../assets/images/VestidoRosaconMangas.PNG",
     alt: "vestido rosa paillette rosa",
+    cantidad: 1,
   },
 ];
 
-//array que se llenara de objetos(productos) que vaya ingresando el usuario
-const carrito = [];
+
+ //si ya estaba guardado el carrito en storage, que vuelva aparecer el carrito , sino vacio para ir llenandolocomo habia quedado
+const carrito = JSON.parse(localStorage.getItem("carritoLocal")) || [];
+
 let contenedorTotalCarrito = document.getElementById("totalCarrito");
+let carritoContendor = document.getElementById("carrito");
 
 //Creo mis productos en HTML y relaciono el boton con el producto.
 function relacionProductoConButton() {
@@ -114,71 +123,45 @@ function relacionProductoConButton() {
     let agregoParraffo = document.getElementById("galeriaDeProductos");
     agregoParraffo.append(adentroDelBotton);
     let botonParaAgregar = document.getElementById(`${producto.id}`);
-    botonParaAgregar.addEventListener("click", agregarAlCarrito);
+    botonParaAgregar.addEventListener("click", () => agregarAlCarrito(`${producto.id}`));
   }
-  //si ya estaba guardado el carrito en storage, que vuelva aparecer el carrito como habia quedado
-  let carritoGuardado = JSON.parse(localStorage.getItem("carritoLocal"));
-  // if (carritoGuardado){
-  //   carrito = carritoGuardado
-  // }
-
+ 
 }
 
 //funcion para agregar el producto al carrito y sumar cantidades
-function agregarAlCarrito(e) {
-  let id = Number(e.target.getAttribute("id"));
-  let productoAAgregar = productos.find((producto) => producto.id === id);
-  if (existeEnCarrito(productoAAgregar)) {
-    let productoEnCarrito = carrito.find(
-      (producto) => producto.id === productoAAgregar.id
-    );
-    let indiceDelProducto = carrito.indexOf(productoEnCarrito);
-    carrito[indiceDelProducto].cantidad += 1;
-    let productoAnterior = document.getElementById(
-      `producto${productoAAgregar.id}`
-    );
-    productoAnterior.innerHTML = `
-          <div class="cardCarrito">
-          <h2>${productoAAgregar.modelo.toUpperCase()}</h2>
-          <h3>$ ${productoAAgregar.precio}</h3>
-          <h3>Cantidad: ${carrito[indiceDelProducto].cantidad}</h3>
-          <h3>Total de ${productoAAgregar.modelo} : $ ${
-      carrito[indiceDelProducto].cantidad * productoAAgregar.precio
-    }</h3>
-          </div>
-      `;
-    //llamo a la funcion para sumar el total del producto agregago, acumulando el anterior
-    calcularTotal();
+function agregarAlCarrito(id) {
+  let productoAAgregar = productos.find((producto) => producto.id == id);
+  const productoEnCarrito = carrito.find ((producto)=> producto.id == id)
+  if (productoEnCarrito) {
+     productoEnCarrito.cantidad++;
+     localStorage.setItem("carritoLocal", JSON.stringify(carrito))
   } else {
-    let productoConCantidad = { ...productoAAgregar, cantidad: 1 };
-    carrito.push(productoConCantidad);
-    let cardCarrito = document.createElement("div");
-    cardCarrito.innerHTML = `
-          <div class="cardCarrito">
-          <h2>${productoConCantidad.modelo.toUpperCase()}</h2>
-          <h3>$ ${productoConCantidad.precio}</h3>
-          <h3>Cantidad: 1</h3>
-          </div>
-      `;
-    cardCarrito.setAttribute("id", `producto${productoConCantidad.id}`);
-    let carritoContendor = document.getElementById("carrito");
-    carritoContendor.append(cardCarrito);
+    carrito.push(productoAAgregar);
+    localStorage.setItem("carritoLocal",JSON.stringify(carrito))
   }
-  //llamo a la funcion para sumar el total del producto agregafo
+
+  actualizarCarrito();
+    //llamo a la funcion para sumar el total del producto agregado
   calcularTotal();
-  //guardo el carrito en el localstorage.
-  localStorage.setItem("carritoLocal", JSON.stringify(carrito));
 }
 
-//verifico si esta el producto en el carrito para luego ver si lo creo por primera vez o le cambio la cantidad
-function existeEnCarrito(productoAChequear) {
-  for (producto of carrito) {
-    if (productoAChequear.id === producto.id) {
-      return true;
-    }
-  }
-  return false;
+
+function actualizarCarrito(){
+  let aux = "";
+  carrito.forEach((producto)=> {
+  aux += `
+  <div class="cardCarrito">
+  <h2>${producto.modelo.toUpperCase()}</h2>
+  <h3>$ ${producto.precio}</h3>
+  <h3>Cantidad: ${producto.cantidad}</h3>
+  </div>
+`;
+});
+
+carritoContendor.innerHTML = aux;
+calcularTotal()
 }
+
 
 //sumamos el total del carrito con un reduce que vaya almacenando en total producto, los precios del carrito//
 function calcularTotal() {
@@ -193,6 +176,7 @@ function calcularTotal() {
   </div>
 `;
 }
+
 function borrarCarrito () {
   let botonVaciar = document.getElementById("vaciarCarrito");
   botonVaciar.addEventListener("click", botonBorrarCarrito);
@@ -207,8 +191,8 @@ function botonBorrarCarrito (){
 //llamo a las funciones creadas.
 
 relacionProductoConButton();
+actualizarCarrito();
 borrarCarrito()
-
 
 
 
