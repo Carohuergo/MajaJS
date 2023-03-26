@@ -61,12 +61,12 @@ const productos = [
   },
 ];
 
-
- //si ya estaba guardado el carrito en storage, que vuelva aparecer el carrito , sino vacio para ir llenandolocomo habia quedado
-const carrito = JSON.parse(localStorage.getItem("carritoLocal")) || [];
+//si ya estaba guardado el carrito en storage, que vuelva aparecer el carrito , sino vacio para ir llenandolocomo habia quedado
+let carrito = JSON.parse(localStorage.getItem("carritoLocal")) || [];
 
 let contenedorTotalCarrito = document.getElementById("totalCarrito");
 let carritoContendor = document.getElementById("carrito");
+
 
 //Creo mis productos en HTML y relaciono el boton con el producto.
 function relacionProductoConButton() {
@@ -123,47 +123,46 @@ function relacionProductoConButton() {
     let agregoParraffo = document.getElementById("galeriaDeProductos");
     agregoParraffo.append(adentroDelBotton);
     let botonParaAgregar = document.getElementById(`${producto.id}`);
-    botonParaAgregar.addEventListener("click", () => agregarAlCarrito(`${producto.id}`));
+    botonParaAgregar.addEventListener("click", () => agregarAlCarrito(`${producto.id}`)
+    );
   }
- 
 }
 
 //funcion para agregar el producto al carrito y sumar cantidades
 function agregarAlCarrito(id) {
   let productoAAgregar = productos.find((producto) => producto.id == id);
-  const productoEnCarrito = carrito.find ((producto)=> producto.id == id)
+  const productoEnCarrito = carrito.find((producto) => producto.id == id);
   if (productoEnCarrito) {
-     productoEnCarrito.cantidad++;
-     localStorage.setItem("carritoLocal", JSON.stringify(carrito))
+    productoEnCarrito.cantidad++;
+    localStorage.setItem("carritoLocal", JSON.stringify(carrito));
   } else {
     carrito.push(productoAAgregar);
-    localStorage.setItem("carritoLocal",JSON.stringify(carrito))
+    localStorage.setItem("carritoLocal", JSON.stringify(carrito));
   }
 
   actualizarCarrito();
-    //llamo a la funcion para sumar el total del producto agregado
+  //llamo a la funcion para sumar el total del producto agregado
   calcularTotal();
 }
 
-
-function actualizarCarrito(){
+//renderizo mi carrito con el producto agregado.
+function actualizarCarrito() {
   let aux = "";
-  carrito.forEach((producto)=> {
-  aux += `
+  carrito.forEach((producto) => {
+    aux += `
   <div class="cardCarrito">
   <h2>${producto.modelo.toUpperCase()}</h2>
   <h3>$ ${producto.precio}</h3>
   <h3>Cantidad: ${producto.cantidad}</h3>
   </div>
 `;
-});
+  });
 
-carritoContendor.innerHTML = aux;
-calcularTotal()
+  carritoContendor.innerHTML = aux;
+  calcularTotal();
 }
 
-
-//sumamos el total del carrito con un reduce que vaya almacenando en total producto, los precios del carrito//
+//sumamos el total del carrito con un reduce que vaya almacenando en total producto, segun cantidad//
 function calcularTotal() {
   let totalCarrito = carrito.reduce(
     (acc, ite) => acc + ite.precio * ite.cantidad,
@@ -176,27 +175,46 @@ function calcularTotal() {
   </div>
 `;
 }
-
-function borrarCarrito () {
+//creo el evento para que cuando se se haga click en vaciar, se elimine los productos del carrito
+function borrarCarrito() {
   let botonVaciar = document.getElementById("vaciarCarrito");
   botonVaciar.addEventListener("click", botonBorrarCarrito);
 }
 
-function botonBorrarCarrito (){
-  carrito =[]
-  localStorage.removeItem("carritoLocal")
-  console.log(carrito)
+//funcion de vaciar carrito con alerta antes de confirmar.
+function botonBorrarCarrito() {
+  Swal.fire({
+    title: "Estas seguro de querer vaciar el carrito?",
+    text: "No vas a poder revertirlo!",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "rgba(95, 171, 116, 0.95)",
+    cancelButtonColor: "rgba(238, 62, 62, 0.926)",
+    confirmButtonText: "Si, eliminar productos!",
+    width: 400,
+    heigh: 400,
+    padding: '3em',
+  }).then((result) => {
+    //vacio carrito, llamo a CalcularSuma, para que quede en O y renderizo el contenedor
+    if (result.isConfirmed) {
+      carrito = [];
+      carritoContendor.innerHTML = "";
+      localStorage.removeItem("carritoLocal");
+      calcularTotal();
+      Swal.fire(
+        "Carrito vacio!",
+        "Has eliminado los productos del carrito.",
+        "success"
+      );
+    }
+  });
 }
 
-//llamo a las funciones creadas.
 
+
+//llamo a las funciones creadas.
 relacionProductoConButton();
 actualizarCarrito();
-borrarCarrito()
-
-
-
-
-
+borrarCarrito();
 
 
