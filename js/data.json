@@ -1,0 +1,57 @@
+
+[
+    {
+      "id": 1,
+      "modelo": "guiseppina",
+      "precio": 3000,
+      "descrip": "Confeccionado en paillette bordado sobre seda fría con spandex, tela importada.",
+      "img": "../assets/images/VestidoGuiseppina2.JPG",
+      "alt": "Vestido Guiseppina pailete rojo",
+      "cantidad": 1
+    },
+    {
+      "id": 2,
+      "modelo": "toia",
+      "precio": 3400,
+      "descrip": "Confeccionado en taftan de seda, escote en v con recortes y espalda con tiras cruzadas",
+      "img": "../assets/images/VestidoToia2.jpg",
+      "alt": "Vestido Toia taftan azul",
+      "cantidad": 1
+    },
+    {
+      "id": 3,
+      "modelo": "olivia",
+      "precio": 4000,
+      "descrip": "Vestido confeccionado en saten de seda, con corte americano, espalda baja y tajo.",
+      "img": "../assets/images/VestidoOliva2.PNG",
+      "alt": "vestido oliva seda verde",
+      "cantidad": 1
+    },
+    {
+      "id": 4,
+      "modelo": "alexia",
+      "precio": 3200,
+      "escrip": "Conjunto de top bando, pantalón suelto y saco Sastrero. Confeccionado en paillette plisado importado",
+      "img": "../assets/images/ConjuntoAlexia3.PNG",
+      "alt": "conjunto alexia paillette rosa",
+      "cantidad": 1
+    },
+    {
+      "id": 5,
+      "modelo": "maria",
+      "precio": 5000,
+      "descrip": "Vestido confeccionado en doble seda fría importada.",
+      "img": "../assets/images/VestidoMaria2.PNG",
+      "alt": "vestido maria seda negro",
+      "cantidad": 1
+    },
+    {
+      "id": 6,
+      "modelo": "milagros",
+      "precio": 5000,
+      "descrip": "Vestido confeccionado en paillette bordado sobre seda fría con spandex, tela importada.",
+      "img": "../assets/images/VestidoRosaconMangas.PNG",
+      "alt": "vestido rosa paillette rosa",
+      "cantidad": 1
+    }
+  ]
