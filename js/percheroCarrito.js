@@ -1,21 +1,23 @@
-
-
 //si ya estaba guardado el carrito en storage, que vuelva aparecer el carrito , sino vacio para ir llenandolocomo habia quedado
 let carrito = JSON.parse(localStorage.getItem("carritoLocal")) || [];
 
 let contenedorTotalCarrito = document.getElementById("totalCarrito");
 let carritoContendor = document.getElementById("carrito");
+//creo mi array de productos vacio para luego llenarlo con la informacion de la respuesta de fetch (data)
+let productos = [];
 
 async function obtenerJson() {
   try {
-      const resp = await fetch ('./data.json')
-      const data = await resp.json()
-      
-      data.forEach((producto) => {
-        let adentroDelBotton = document.createElement("div");
-        //armo el html que relacionara cada producto con el boton
-        //adentro esta la estructura del html del producto y un modal para avisarle al usuario que se agrego al producto
-        adentroDelBotton.innerHTML = `
+    const resp = await fetch("../js/data.json");
+    const data = await resp.json();
+    //la respuesta de data la almaceno en mi array de productos
+    productos = data;
+
+    data.forEach((producto) => {
+      let adentroDelBotton = document.createElement("div");
+      //armo el html que relacionara cada producto con el boton
+      //adentro esta la estructura del html del producto y un modal para avisarle al usuario que se agrego al producto
+      adentroDelBotton.innerHTML = `
           <div class="row margenGaleria">
             <div class="col-sm-6">
               <div class="ih-item square effect6 from_top_and_bottom"><a>
@@ -59,22 +61,23 @@ async function obtenerJson() {
           </div>
         </div>
             `;
-        //agrego lo creado a mi html
-        let agregoParraffo = document.getElementById("galeriaDeProductos");
-        agregoParraffo.append(adentroDelBotton);
-        let botonParaAgregar = document.getElementById(`${producto.id}`);
-        botonParaAgregar.addEventListener("click", () => agregarAlCarrito(`${producto.id}`)
-        );
-      })
+      //agrego lo creado a mi html
+      let agregoParraffo = document.getElementById("galeriaDeProductos");
+      agregoParraffo.append(adentroDelBotton);
+      let botonParaAgregar = document.getElementById(`${producto.id}`);
+      botonParaAgregar.addEventListener("click", () =>
+        agregarAlCarrito(`${producto.id}`)
+      );
+    });
   } catch (error) {
-      alert("error")
+    //si la promesa no se cumple alerta con error
+    Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: "Error en carga de datos!",
+    });
   }
-
 }
-
-
-
-
 
 //funcion para agregar el producto al carrito y sumar cantidades
 function agregarAlCarrito(id) {
@@ -88,25 +91,58 @@ function agregarAlCarrito(id) {
     localStorage.setItem("carritoLocal", JSON.stringify(carrito));
   }
 
-  actualizarCarrito();
+  renderizoCarrito();
   //llamo a la funcion para sumar el total del producto agregado
   calcularTotal();
 }
 
 //renderizo mi carrito con el producto agregado.
-function actualizarCarrito() {
+function renderizoCarrito() {
   let aux = "";
   carrito.forEach((producto) => {
     aux += `
   <div class="cardCarrito">
+  <div>
   <h2>${producto.modelo.toUpperCase()}</h2>
   <h3>$ ${producto.precio}</h3>
   <h3>Cantidad: ${producto.cantidad}</h3>
   </div>
+  <div>
+  <button id= ${producto.modelo} class=" boton btn-dark btn-lg">x</button>
+  </div>
+  </div>
 `;
   });
-
   carritoContendor.innerHTML = aux;
+  calcularTotal();
+}
+
+function botonEliminarCantidad() {
+  carrito.forEach((producto) => {
+    let botonEliminar = document.getElementById(`${producto.modelo}`);
+    botonEliminar.addEventListener("click", () =>
+      eliminarCantidad(`${producto.modelo}`)
+    );
+  });
+}
+
+function eliminarCantidad(modelo) {
+  let productoAEliminar = productos.find(
+    (producto) => producto.modelo == modelo
+  );
+  const productoEnCarrito = carrito.find(
+    (producto) => producto.modelo == modelo
+  );
+  if (productoaEliminar.cantidad>=1) {
+    productoEnCarrito.cantidad--;
+    localStorage.setItem("carritoLocal", JSON.stringify(carrito));
+  } else {
+    carrito.remove(productoAEliminar);
+    localStorage.setItem("carritoLocal", JSON.stringify(carrito));
+  }
+
+  renderizoCarrito();
+  //llamo a la funcion para sumar el total del producto agregado
   calcularTotal();
 }
 
@@ -123,6 +159,7 @@ function calcularTotal() {
   </div>
 `;
 }
+
 //creo el evento para que cuando se se haga click en vaciar, se elimine los productos del carrito
 function borrarCarrito() {
   let botonVaciar = document.getElementById("vaciarCarrito");
@@ -141,7 +178,7 @@ function botonBorrarCarrito() {
     confirmButtonText: "Si, eliminar productos!",
     width: 400,
     heigh: 400,
-    padding: '3em',
+    padding: "3em",
   }).then((result) => {
     //vacio carrito, llamo a CalcularSuma, para que quede en O y renderizo el contenedor
     if (result.isConfirmed) {
@@ -158,11 +195,8 @@ function botonBorrarCarrito() {
   });
 }
 
-
-
 //llamo a las funciones creadas.
 obtenerJson();
-actualizarCarrito();
+renderizoCarrito();
+botonEliminarCantidad();
 borrarCarrito();
-
-

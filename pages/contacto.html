@@ -80,17 +80,17 @@
 
           <div class="container row">
               <div class="col-12 col-md-6">
-                  <form class="form formularioPadre" action="./error.html">
+                  <form class="form formularioPadre" action="error.html">
                       <div class="formulario">
-                          <input class="form-control" type="text" placeholder="Nombre y apellido*" required />
+                          <input class="form-control" type="text" name="name" placeholder="Nombre y apellido*" required />
                           <br />
-                          <input class="form-control" type="email" placeholder="ejemplo@mail.com*" required />
+                          <input class="form-control" type="email" name="email" placeholder="ejemplo@mail.com*" required />
                           <br />
-                          <input class="form-control" type="text" placeholder="Telefono*" required />
+                          <input class="form-control" type="text" name="celular" placeholder="Telefono*" required />
                           <br />
               
                           <!-- <p>¿En que servicio estas interesada?</p> -->
-                          <select class="custom-select agrandar" required>
+                          <select class="custom-select agrandar" name="servicio" required>
                           <option selected>¿En que servicio estas interesada?</option>
                           <option value="1">Alquiler de Perchero</option>
                           <option value="2">A medida</option>
@@ -99,7 +99,7 @@
 
                           <br>
             
-                          <select class="custom-select agrandar">
+                          <select name="modelo" class="custom-select agrandar">
                               <option selected>¿Estas interesada en algun modelo de perchero?</option>
                               <option value="1">Vestido GUISEPPINA</option>
                               <option value="2">Vestido TOIA</option>
@@ -123,7 +123,7 @@
                           </select>
                           <br>
                           <label class="form-check-label" for="">Fecha del evento</label>
-                          <input class="form-control" id="" name="dia*" type="date" required />
+                          <input class="form-control" id="" name="fechaEvento" type="date" required />
                            <br>
                           <label class="form-check-label" for="">Interesada en probarse mas modelos?
                           <input class="form-check-input" type="checkbox" name="opciones" />
@@ -131,7 +131,7 @@
 
                           <br />
                           <label for="exampleFormControlTextarea1" class="form-label agrandar">Comentarios</label>
-                          <textarea class="form-control agrandar" placeholder="Ingrese su mensaje"></textarea>
+                          <textarea class="form-control agrandar" name="comentario" placeholder="Ingrese su mensaje"></textarea>
                           <input class="form-control agrandar botonEnviar" type="submit" value="Enviar Ahora">
                           
                         </div>
