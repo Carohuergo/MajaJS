@@ -115,6 +115,7 @@ function renderizoCarrito() {
   });
   carritoContendor.innerHTML = aux;
   calcularTotal();
+  
 }
 
 function botonEliminarCantidad() {
@@ -127,24 +128,26 @@ function botonEliminarCantidad() {
 }
 
 function eliminarCantidad(modelo) {
-  let productoAEliminar = productos.find(
-    (producto) => producto.modelo == modelo
-  );
-  const productoEnCarrito = carrito.find(
-    (producto) => producto.modelo == modelo
-  );
-  if (productoaEliminar.cantidad>=1) {
-    productoEnCarrito.cantidad--;
-    localStorage.setItem("carritoLocal", JSON.stringify(carrito));
-  } else {
-    carrito.remove(productoAEliminar);
-    localStorage.setItem("carritoLocal", JSON.stringify(carrito));
-  }
 
-  renderizoCarrito();
-  //llamo a la funcion para sumar el total del producto agregado
-  calcularTotal();
-}
+  for(let i=0; i< carrito.length; i++){
+    if(carrito[i].modelo.trim() === modelo.trim()){
+        if(carrito[i].cantidad===1){
+            carrito.splice(i,1)
+        }else{
+            carrito[i].cantidad--
+        }    
+    } 
+
+   }
+   //actualizo mi carrito 
+   renderizoCarrito();
+   //actualizo totales
+   calcularTotal();
+   //guardo cambio en el stotage
+   localStorage.setItem("carritoLocal", JSON.stringify(carrito));
+  }
+  
+
 
 //sumamos el total del carrito con un reduce que vaya almacenando en total producto, segun cantidad//
 function calcularTotal() {
