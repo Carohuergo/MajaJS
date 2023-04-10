@@ -1,11 +1,17 @@
 //si ya estaba guardado el carrito en storage, que vuelva aparecer el carrito , sino vacio para ir llenandolocomo habia quedado
 let carrito = JSON.parse(localStorage.getItem("carritoLocal")) || [];
 
+//contenedores y boton del carrito
+
 let contenedorTotalCarrito = document.getElementById("totalCarrito");
 let carritoContendor = document.getElementById("carrito");
+const btnMostrarCarrito = document.getElementById("mostrar-carrito")
+btnMostrarCarrito.addEventListener("click",renderizoCarrito)
+
 //creo mi array de productos vacio para luego llenarlo con la informacion de la respuesta de fetch (data)
 let productos = [];
 
+//funcion para recolectar informacion de mi json creada
 async function obtenerJson() {
   try {
     const resp = await fetch("../js/data.json");
@@ -52,10 +58,9 @@ async function obtenerJson() {
               data-bs-toggle="offcanvas"
               data-bs-target="#offcanvasScrolling"
               aria-controls="offcanvasScrolling"
-            >
+              data-bs-dismiss="modal">
               VER CARRITO
             </button>
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">OK</button>
               </div>
             </div>
           </div>
@@ -98,9 +103,9 @@ function agregarAlCarrito(id) {
 
 //renderizo mi carrito con el producto agregado.
 function renderizoCarrito() {
-  
+  //vacio contenedor antes para no duplicar informacion
   carritoContendor.innerHTML="";
-
+  //recorro el carrito y renderizo los productos
   carrito.forEach((producto) => {
     const aux = document.createElement("div")
     aux.innerHTML = `
@@ -115,23 +120,32 @@ function renderizoCarrito() {
   </div>
   </div>
 `;
+//agrego el contenido al contenedor dentro de un hijo.
 carritoContendor.appendChild(aux)
+
+//relaciono el boton para eiminar cantidades del producto o su totalidad.
 const btnEliminar =document.getElementById(`${producto.modelo}`);
 btnEliminar.addEventListener("click", eliminarCantidad)
   });
+
+  //actualizo totales
   calcularTotal();
 }
 
-const btnMostrarCarrito = document.getElementById("mostrar-carrito")
-btnMostrarCarrito.addEventListener("click",renderizoCarrito)
 
+//funcion para eliminar si hace click en el evento.
 function eliminarCantidad(e) {
 const id= e.target.id
 const indice= carrito.findIndex((p)=> p.modelo === id)
     if(carrito[indice].cantidad > 1) {
       carrito[indice].cantidad--;
     } else {
-      carrito.splice (indice,1)
+      carrito.splice (indice,1);
+      Swal.fire(
+        "Producto eliminado!",
+        "Has eliminado el producto del carrito.",
+        "success"
+      );
     }
        
            
@@ -145,7 +159,7 @@ const indice= carrito.findIndex((p)=> p.modelo === id)
   
 
 
-//sumamos el total del carrito con un reduce que vaya almacenando en total producto, segun cantidad//
+//funcion para sumar el total del carrito con un reduce que vaya almacenando en total producto, segun cantidad
 function calcularTotal() {
   let totalCarrito = carrito.reduce(
     (acc, ite) => acc + ite.precio * ite.cantidad,
