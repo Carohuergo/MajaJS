@@ -90,7 +90,7 @@ function agregarAlCarrito(id) {
     carrito.push(productoAAgregar);
     localStorage.setItem("carritoLocal", JSON.stringify(carrito));
   }
-
+  //actualizo carrito
   renderizoCarrito();
   //llamo a la funcion para sumar el total del producto agregado
   calcularTotal();
@@ -98,9 +98,12 @@ function agregarAlCarrito(id) {
 
 //renderizo mi carrito con el producto agregado.
 function renderizoCarrito() {
-  let aux = "";
+  
+  carritoContendor.innerHTML="";
+
   carrito.forEach((producto) => {
-    aux += `
+    const aux = document.createElement("div")
+    aux.innerHTML = `
   <div class="cardCarrito">
   <div>
   <h2>${producto.modelo.toUpperCase()}</h2>
@@ -108,37 +111,30 @@ function renderizoCarrito() {
   <h3>Cantidad: ${producto.cantidad}</h3>
   </div>
   <div>
-  <button id= ${producto.modelo} class=" boton btn-dark btn-lg">x</button>
+  <button id= ${producto.modelo} class=" btn-eliminar-prod-carro btn-dark btn-lg">x</button>
   </div>
   </div>
 `;
+carritoContendor.appendChild(aux)
+const btnEliminar =document.getElementById(`${producto.modelo}`);
+btnEliminar.addEventListener("click", eliminarCantidad)
   });
-  carritoContendor.innerHTML = aux;
   calcularTotal();
-  
 }
 
-function botonEliminarCantidad() {
-  carrito.forEach((producto) => {
-    let botonEliminar = document.getElementById(`${producto.modelo}`);
-    botonEliminar.addEventListener("click", () =>
-      eliminarCantidad(`${producto.modelo}`)
-    );
-  });
-}
+const btnMostrarCarrito = document.getElementById("mostrar-carrito")
+btnMostrarCarrito.addEventListener("click",renderizoCarrito)
 
-function eliminarCantidad(modelo) {
-
-  for(let i=0; i< carrito.length; i++){
-    if(carrito[i].modelo.trim() === modelo.trim()){
-        if(carrito[i].cantidad===1){
-            carrito.splice(i,1)
-        }else{
-            carrito[i].cantidad--
-        }    
-    } 
-
-   }
+function eliminarCantidad(e) {
+const id= e.target.id
+const indice= carrito.findIndex((p)=> p.modelo === id)
+    if(carrito[indice].cantidad > 1) {
+      carrito[indice].cantidad--;
+    } else {
+      carrito.splice (indice,1)
+    }
+       
+           
    //actualizo mi carrito 
    renderizoCarrito();
    //actualizo totales
@@ -200,6 +196,5 @@ function botonBorrarCarrito() {
 
 //llamo a las funciones creadas.
 obtenerJson();
-renderizoCarrito();
-botonEliminarCantidad();
 borrarCarrito();
+
