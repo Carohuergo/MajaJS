@@ -50,7 +50,7 @@ let finalizarCompraContenedor = document.getElementById("contenedorFinalizarComp
         title: 'Solitud enviada!',
         text: 'Se ha enviado la solicitud de alquiler correctamente. Si el vestido se encuentra disponible para la fecha indicada, le estaremos enviando un correo con los medios de pago para realizar la compra!',
         showConfirmButton: false,
-        timer: 2500,
+        timer: 4500,
         width: 600,
         padding: '3em',
       });
